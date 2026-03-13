@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mux Player Preview</title>
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@mux/mux-player"></script>
+  <style>
+    body { margin: 0; background: #111; color: #eee; font-family: system-ui, sans-serif; }
+    .wrap { padding: 12px; }
+    mux-player { width: 100%; height: 560px; }
+    .meta { margin-top: 8px; font-size: 14px; }
+  </style>
+  <script>
+    // playback token is optional; use when signed playback required
+    const PLAYBACK_ID = '{{PLAYBACK_ID}}';
+    const TOKEN = '{{PLAYBACK_TOKEN}}';
+    window.addEventListener('DOMContentLoaded', () => {
+      const player = document.querySelector('mux-player');
+      player.setAttribute('playback-id', PLAYBACK_ID);
+      if (TOKEN && TOKEN.length > 0) player.setAttribute('token', TOKEN);
+    });
+  </script>
+  <link rel="preconnect" href="https://stream.mux.com">
+</head>
+<body>
+  <div class="wrap">
+    <mux-player stream-type="on-demand" poster="" muted></mux-player>
+    <div class="meta">Playback ID: {{PLAYBACK_ID}}</div>
+  </div>
+</body>
+<script>
+  // allow in JavaFX WebView
+  document.addEventListener('click', (e) => {});
+  console.log('Mux Player template loaded');
+</script>
+</html>

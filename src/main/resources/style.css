@@ -1,0 +1,16 @@
+/* Simple dark theme */
+root, .root {
+    -fx-base: #222;
+    -fx-background: #222;
+    -fx-control-inner-background: #222;
+    -fx-text-fill: #eee;
+}
+Label, Button, TextField, PasswordField, ListView {
+    -fx-text-fill: #eee;
+}
+Button {
+    -fx-background-color: #444;
+}
+ListView {
+    -fx-background-color: #222;
+}
